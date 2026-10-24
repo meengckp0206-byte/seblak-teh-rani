@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedai Seblak Teh Rani</title>
+    <link rel="stylesheet" href="seblak.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">Seblak<span>Rani.</span></a>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#info">Info Kedai</a>
+                <button id="adminToggle" class="admin-button">
+                    Admin
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">UMKM Lokal • Rasa Spesial</span>
+                <h1>Seblak Pedas,<br>Rasa Bikin Nagih!</h1>
+                <p>
+                    Nikmati seblak hangat dengan topping favorit
+                    dan harga yang bersahabat.
+                </p>
+                <a href="#menu" class="button">Lihat Menu</a>
+            </div>
+
+            <img
+                class="hero-image"
+                src="seblak.jpg"
+                alt="Makanan dengan topping yang menggugah selera"
+            >
+        </section>
+
+        <!-- Informasi kedai -->
+        <section id="info" class="info-section">
+            <div class="info-card">
+                <span>🕒</span>
+                <div>
+                    <h3>Jam Operasional</h3>
+                    <p id="hoursText">Memuat jam buka...</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <span>📍</span>
+                <div>
+                    <h3>Status Kedai</h3>
+                    <p id="openStatus">Memeriksa status...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daftar menu -->
+        <section id="menu" class="section">
+            <div class="section-heading">
+                <span class="eyebrow">Menu Pilihan</span>
+                <h2>Menu Favorit</h2>
+                <p>Pilih menu yang kamu suka.</p>
+            </div>
+
+            <div id="menuContainer" class="menu-container"></div>
+        </section>
+
+        <!-- Keranjang -->
+        <section id="cart" class="cart-section">
+            <div class="section-heading">
+                <span class="eyebrow">Pesanan Kamu</span>
+                <h2>Keranjang</h2>
+            </div>
+
+            <div id="cartList">
+                <p class="empty-cart">Belum ada pesanan.</p>
+            </div>
+
+            <div class="cart-total">
+                <span>Total pesanan</span>
+                <strong id="total">Rp0</strong>
+            </div>
+
+            <button id="orderBtn" class="button order-button">
+                Pesan via WhatsApp
+            </button>
+            <p class="small-note">
+                Pesanan akan diteruskan ke WhatsApp untuk konfirmasi.
+            </p>
+        </section>
+
+        <!-- Panel admin -->
+        <section id="adminPanel" class="admin-panel" hidden>
+            <div class="section-heading">
+                <span class="eyebrow">Pengaturan Kedai</span>
+                <h2>Panel Admin</h2>
+                <p>Ubah menu, harga, stok, dan jam operasional.</p>
+            </div>
+
+            <div class="admin-hours">
+                <h3>Jam Operasional</h3>
+
+                <div class="form-grid">
+                    <label>
+                        Jam buka
+                        <input type="time" id="openingTime" value="10:00">
+                    </label>
+
+                    <label>
+                        Jam tutup
+                        <input type="time" id="closingTime" value="21:00">
+                    </label>
+                </div>
+
+                <button id="saveHours" class="button">
+                    Simpan Jam Operasional
+                </button>
+            </div>
+
+            <div class="admin-menu">
+                <h3>Atur Menu</h3>
+                <p class="small-note">
+                    Ubah data menu, lalu tekan Simpan Menu.
+                </p>
+
+                <div id="adminMenuList"></div>
+            </div>
+
+            <div class="admin-add">
+                <h3>Tambah Menu Baru</h3>
+
+                <form id="addMenuForm">
+                    <label>
+                        Nama menu
+                        <input id="newName" type="text"
+                               placeholder="Contoh: Seblak Seafood"
+                               required>
+                    </label>
+
+                    <label>
+                        Harga (rupiah)
+                        <input id="newPrice" type="number"
+                               min="1" placeholder="18000" required>
+                    </label>
+
+                    <label>
+                        Stok tersedia
+                        <input id="newStock" type="number"
+                               min="0" value="10" required>
+                    </label>
+
+                    <label>
+                        URL foto makanan
+                        <input id="newImage" type="url"
+                               placeholder="https://contoh.com/foto.jpg"
+                               required>
+                    </label>
+
+                    <label>
+                        Deskripsi
+                        <input id="newDescription" type="text"
+                               placeholder="Deskripsi menu" required>
+                    </label>
+
+                    <button type="submit" class="button">
+                        Tambah Menu
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Kedai Seblak Teh Rani</h3>
+        <p>Pedasnya nikmat, harganya bersahabat ❤️</p>
+        <p>© 2026 Kedai Seblak Teh Rani</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
